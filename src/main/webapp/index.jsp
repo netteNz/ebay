@@ -144,8 +144,22 @@
             <p>Please log in to access the auction platform.</p>
         </div>
 
-        <div class="actions">
-            <a href="<%=request.getContextPath()%>/login" class="btn btn-primary">Login</a>
+        <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+            <form method="post" action="<%=request.getContextPath()%>/login" style="max-width: 320px; margin: 0 auto;">
+                <div style="margin-bottom: 15px; text-align: left;">
+                    <label style="display:block; margin-bottom:5px; color:#555;">Username</label>
+                    <input name="username" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 20px; text-align: left;">
+                    <label style="display:block; margin-bottom:5px; color:#555;">Password</label>
+                    <input name="password" type="password" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+            
+            <div style="margin-top: 20px; color: #666; font-size: 0.9em;">
+                New here? <a href="<%=request.getContextPath()%>/register" style="color: #667eea; text-decoration: none; font-weight: 600;">Create an account</a>
+            </div>
         </div>
     <% } %>
 </div>

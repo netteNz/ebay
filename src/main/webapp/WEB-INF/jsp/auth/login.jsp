@@ -31,6 +31,12 @@
     <div class="error"><%= err %></div>
     <% } %>
 
+    <% if (request.getParameter("registered") != null) { %>
+        <div style="background: #d3f9d8; color: #2b8a3e; padding: 12px; border-radius: 6px; margin-bottom: 20px;">
+            Registration successful! Please log in.
+        </div>
+    <% } %>
+
     <form method="post" action="<%=request.getContextPath()%>/login">
         <div class="row">
             <label for="username">Username</label>
@@ -49,7 +55,7 @@
     </form>
 
     <p class="muted" style="margin-top: 12px;">
-        Don’t have an account yet? (We’ll add registration next.)
+        Don’t have an account yet? <a href="<%=request.getContextPath()%>/register">Sign up</a>
     </p>
 </div>
 </body>
