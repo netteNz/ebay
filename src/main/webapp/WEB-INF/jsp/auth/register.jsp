@@ -3,99 +3,42 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Register - eBay Auction</title>
-    <style>
-        body {
-            font-family: system-ui, -apple-system, Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-        }
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            width: 90%;
-            max-width: 420px;
-        }
-        h2 { margin-top: 0; color: #333; text-align: center; margin-bottom: 25px; }
-        .row { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 500; color: #495057; }
-        input {
-            width: 100%;
-            padding: 12px;
-            box-sizing: border-box;
-            border: 2px solid #e9ecef;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.2s;
-        }
-        input:focus { border-color: #667eea; outline: none; }
-        button {
-            width: 100%;
-            padding: 14px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-        button:hover { background: #5568d3; }
-        .error {
-            background: #ffe3e3;
-            color: #c92a2a;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 0.9em;
-        }
-        .links {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.95em;
-        }
-        .links a { color: #667eea; text-decoration: none; font-weight: 500; }
-        .links a:hover { text-decoration: underline; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Register</title>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 </head>
-<body>
-<div class="card">
-    <h2>Create Account</h2>
+<body class="centered">
+<div class="card" style="max-width: 380px; width: 90%;">
+    <div class="card-header text-center">
+        <h2>Create Account</h2>
+    </div>
 
     <% String err = (String) request.getAttribute("error"); %>
     <% if (err != null) { %>
-    <div class="error"><%= err %></div>
+    <div class="alert alert-error"><%= err %></div>
     <% } %>
 
     <form method="post" action="<%=request.getContextPath()%>/register">
-        <div class="row">
-            <label for="username">Username</label>
-            <input id="username" name="username" value="${param.username}" required />
+        <div class="form-group">
+            <label class="form-label" for="username">Username</label>
+            <input id="username" name="username" value="${param.username}" required class="form-input" placeholder="Choose a username"/>
         </div>
 
-        <div class="row">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" required />
+        <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input id="password" name="password" type="password" required class="form-input" placeholder="Create a password"/>
         </div>
 
-        <div class="row">
-            <label for="confirmPassword">Confirm Password</label>
-            <input id="confirmPassword" name="confirmPassword" type="password" required />
+        <div class="form-group">
+            <label class="form-label" for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" required class="form-input" placeholder="Confirm your password"/>
         </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
     </form>
 
-    <div class="links">
-        Already have an account? <a href="<%=request.getContextPath()%>/login">Log in</a>
+    <div class="text-center mt-2 text-sm">
+        <span class="text-muted">Already have an account?</span> <a href="<%=request.getContextPath()%>/login">Log in</a>
     </div>
 </div>
 </body>

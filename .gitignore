@@ -40,3 +40,6 @@ build/
 
 ### Session Files ###
 SESSION_SUMMARY*
+
+### Docker ###
+.docker/

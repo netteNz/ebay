@@ -1,62 +1,46 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Emanuel
-  Date: 12/31/2025
-  Time: 3:39 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Login</title>
-    <style>
-        body { font-family: system-ui, Arial; margin: 40px; }
-        .card { max-width: 420px; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
-        .row { margin: 12px 0; }
-        label { display:block; margin-bottom:6px; }
-        input { width: 100%; padding: 10px; box-sizing: border-box; }
-        button { padding: 10px 14px; cursor: pointer; }
-        .error { color: #b00020; margin: 10px 0; }
-        .muted { color: #666; font-size: 14px; }
-    </style>
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 </head>
-<body>
-<div class="card">
-    <h2>Login</h2>
+<body class="centered">
+<div class="card" style="max-width: 380px; width: 90%;">
+    <div class="card-header text-center">
+        <h2>Sign In</h2>
+    </div>
 
     <% String err = (String) request.getAttribute("error"); %>
     <% if (err != null) { %>
-    <div class="error"><%= err %></div>
+    <div class="alert alert-error"><%= err %></div>
     <% } %>
 
     <% if (request.getParameter("registered") != null) { %>
-        <div style="background: #d3f9d8; color: #2b8a3e; padding: 12px; border-radius: 6px; margin-bottom: 20px;">
-            Registration successful! Please log in.
-        </div>
+    <div class="alert alert-success">Registration successful! Please log in.</div>
     <% } %>
 
     <form method="post" action="<%=request.getContextPath()%>/login">
-        <div class="row">
-            <label for="username">Username</label>
-            <input id="username" name="username" required />
+        <div class="form-group">
+            <label class="form-label" for="username">Username</label>
+            <input id="username" name="username" required class="form-input" placeholder="Enter username"/>
         </div>
 
-        <div class="row">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" required />
+        <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input id="password" name="password" type="password" required class="form-input" placeholder="Enter password"/>
         </div>
 
-        <%-- returnTo preserves the previous page for UX --%>
         <input type="hidden" name="returnTo" value="<%= request.getParameter("returnTo") == null ? "" : request.getParameter("returnTo") %>"/>
 
-        <button type="submit">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
     </form>
 
-    <p class="muted" style="margin-top: 12px;">
-        Don’t have an account yet? <a href="<%=request.getContextPath()%>/register">Sign up</a>
-    </p>
+    <div class="text-center mt-2 text-sm">
+        <span class="text-muted">Don't have an account?</span> <a href="<%=request.getContextPath()%>/register">Sign up</a>
+    </div>
 </div>
 </body>
 </html>

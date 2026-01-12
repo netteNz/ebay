@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ebay-mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Ema.3094!
+      - MYSQL_DATABASE=ebay
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./.docker/data:/var/lib/mysql
