@@ -10,10 +10,26 @@ A Java-based auction web application built with Jakarta EE. This project demonst
 - **Server:** Apache Tomcat 10.1+
 
 ## Status
-- ✅ Authentication & authorization
-- ✅ Product listings & admin dashboard
-- 🔄 Bidding engine (in progress)
-- 📋 Product details, bid history, auction close logic (planned)
+
+### ✅ Fully Functional
+- Authentication & session management (BCrypt hashing)
+- User registration, login, logout
+- Role-based authorization (USER / ADMIN)
+- Product creation, browsing, categorization
+- Admin dashboard (users, products, departments)
+- Image uploads & external URL support
+- **Bidding engine** - place bids, highest bid tracking, bid history
+
+### 🔄 In Progress
+- Auction lifecycle (end-time validation, auto-close)
+- Concurrent bid safety (transaction isolation)
+- Bid increment rules & reserve pricing
+
+### 📋 Planned
+- CSRF tokens, HTTPS, XSS sanitization
+- Rate limiting on auth endpoints
+- Proxy bidding system
+- Audit logging for admin actions
 
 ## Project Structure
 ```
