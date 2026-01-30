@@ -1,0 +1,83 @@
+:root {
+  --md-primary-fg-color:        #2563eb; /* Royal Blue */
+  --md-primary-fg-color--light: #3b82f6;
+  --md-primary-fg-color--dark:  #1d4ed8;
+  --md-accent-fg-color:         #0ea5e9; /* Sky Blue */
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #3b82f6;
+  --md-accent-fg-color:         #38bdf8;
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Typography refinements */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero / Header adjustments */
+.md-header {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Card / Content styling */
+.md-content__inner {
+  margin-top: 1rem;
+}
+
+/* Code blocks: Modern, rounded */
+.md-typeset pre > code {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Admonitions: Softer look */
+.md-typeset .admonition, 
+.md-typeset details {
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* Buttons: Modern pill shape */
+.md-button {
+  border-radius: 50px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.md-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Sidebar navigation active state */
+.md-nav__item .md-nav__link--active {
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+  background: linear-gradient(90deg, rgba(37,99,235,0.1) 0%, transparent 100%);
+  border-radius: 4px;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+}
