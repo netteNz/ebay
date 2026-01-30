@@ -50,19 +50,6 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - Architecture: architecture.md
-  - Features:
-      - Authentication: features/authentication.md
-      - Products & Listings: features/products.md
-      - Bidding Engine: features/bidding.md
-      - Admin Dashboard: features/admin.md
-  - Database:
-      - Schema: database/schema.md
-      - Setup: database/setup.md
-  - API Reference:
-      - Servlets: api/servlets.md
-      - Filters: api/filters.md
   - Deployment: deployment.md
   - Security: security.md
   - Contributing: contributing.md
